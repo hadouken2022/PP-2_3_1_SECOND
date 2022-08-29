@@ -1,4 +1,4 @@
-package Model;
+package web.model;
 
 public class Car {
     private int engine;

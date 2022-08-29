@@ -1,7 +1,7 @@
 package web.service;
 
-import web.Dao.CarDao;
-import Model.Car;
+import web.dao.CarDaoImpl;
+import web.model.Car;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,14 +10,17 @@ import java.util.stream.Collectors;
 @Component
 public class CarServiceImpl implements CarService {
 
-    private final CarDao carDao = new CarDao();
+    private CarDaoImpl carDaoImpl;
 
+    public CarServiceImpl(CarDaoImpl carDaoImpl) {
+        this.carDaoImpl = carDaoImpl;
+    }
 
     @Override
-    public List<Car> getCarsCount(List<Car> cars, int count) {
-        if(count > 5) {
-            carDao.getCarList();
+    public List<Car> getCarsCount(int count) {
+
+            return carDaoImpl.getCarsCount(count);
         }
-        return cars.stream().limit(count).collect(Collectors.toList());
+
     }
-}
+
