@@ -6,14 +6,15 @@ import web.dao.CarDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import web.service.CarService;
 import web.service.CarServiceImpl;
 
 @Controller
 public class CarController {
-    private final CarServiceImpl carService;
+    private final CarService carService;
 
 @Autowired
-    public CarController(CarServiceImpl carService) {
+    public CarController(CarService carService) {
         this.carService = carService;
     }
 
