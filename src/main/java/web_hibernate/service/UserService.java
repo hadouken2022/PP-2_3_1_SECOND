@@ -5,11 +5,13 @@ import web_hibernate.model.User;
 import java.util.List;
 
 public interface UserService {
-    void addUser(User user);
+    List<User> index();
 
-    User getUser(int id);
+    User show(int id);
 
-    List<User> listUsers();
+    void update(int id, User updatedUser);
 
-    void deleteUser(int id);
+    void delete(int id);
+
+    void save(User user);
 }
